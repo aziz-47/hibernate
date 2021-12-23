@@ -6,7 +6,7 @@ import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
 
-public class H3_Save {
+public class H3_SaveFetch {
 
 	public static void main(String[] args) {
 		
@@ -32,9 +32,19 @@ public class H3_Save {
 				//Acilan session icerisnde islemlere baslayabilmek icin Transaction aciyoruz.
 				Transaction tx = session.beginTransaction();
 				
-				//Veritabanina kayitlarin eklenmsei
-				session.save(ogrenci1);
-				session.save(ogrenci2);
+				//Veritabanina kayitlarin eklenmsei(cREATE- UPDTAE-INSERT)
+//				session.save(ogrenci1);
+//				session.save(ogrenci2);
+				
+				//Fetch islemi(veritabanina veri-okuma -READ)
+				H1_Ogrenci ogr1 = session.get(H1_Ogrenci.class, 100);
+				H1_Ogrenci ogr2 = session.get(H1_Ogrenci.class, 102);
+				
+				System.out.println("OGR1:" + ogr1);//Null dondurur.
+				System.out.println("OGR2:" + ogr2);
+				
+				
+				
 				
 				//Ilsemlerin veritabanina aktarilmasi
 				tx.commit();
@@ -47,3 +57,4 @@ public class H3_Save {
 						}	
 
 }
+ 
