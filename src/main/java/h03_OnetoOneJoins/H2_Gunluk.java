@@ -8,7 +8,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="gunlukler")
-public class H2_Gunluk {
+public class H2_Gunluk {  
 	
 	@Id
 	private int id;

@@ -68,6 +68,10 @@ public class H4_Fetch {
     		
     		List <Object []> sonucListesi3 = session.createQuery(hql3).getResultList();
     		sonucListesi3.stream().forEach((x) -> System.out.println(Arrays.toString(x)));
+    		
+    		tx.commit();
+    		session.close();
+    		sf.close();
 
 	}
 
